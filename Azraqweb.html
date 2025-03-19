@@ -1,0 +1,2344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZRAQ TECH - Premium Refrigerator Repair Services</title>
+    <style>
+        :root {
+            --primary: #0073b7;
+            --primary-dark: #005a8e;
+            --secondary: #00a5e0;
+            --accent: #00d4ff;
+            --light: #e8f7ff;
+            --dark: #1a1a2e;
+            --gray: #616161;
+            --light-gray: #f8f8f8;
+            --white: #ffffff;
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.1);
+            --shadow-md: 0 5px 15px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-gray);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Scroll animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.5s ease forwards;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            box-shadow: var(--shadow-md);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--primary);
+            margin-left: 5px;
+        }
+        
+        .logo-icon {
+            margin-right: 10px;
+            color: var(--primary);
+            font-size: 28px;
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin-right: 30px;
+        }
+        
+        .nav-menu li {
+            position: relative;
+            margin-left: 30px;
+        }
+        
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 5px 0;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-menu li a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-menu li a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-menu li a:hover::after {
+            width: 100%;
+        }
+        
+        .contact-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .contact-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .contact-btn span {
+            margin-right: 8px;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(135deg, var(--light) 0%, #c5e8ff 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-shape {
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--secondary) 0%, rgba(0,165,224,0) 70%);
+            opacity: 0.2;
+        }
+        
+        .hero-shape-2 {
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary) 0%, rgba(0,115,183,0) 70%);
+            opacity: 0.15;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-text {
+            width: 50%;
+        }
+        
+        .hero-tagline {
+            display: inline-block;
+            background-color: rgba(0,115,183,0.1);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .hero-title {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero-title span {
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero-title span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background-color: rgba(0,115,183,0.2);
+            border-radius: 10px;
+            z-index: -1;
+        }
+        
+        .hero-description {
+            color: var(--gray);
+            margin-bottom: 30px;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+        
+        .hero-features {
+            display: flex;
+            margin-bottom: 30px;
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            margin-right: 30px;
+        }
+        
+        .hero-feature-icon {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(0,115,183,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .hero-feature-text {
+            font-weight: 500;
+        }
+        
+        .search-box {
+            display: flex;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow-md);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .search-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            background-color: rgba(0,115,183,0.1);
+            color: var(--primary);
+        }
+        
+        .search-input {
+            flex-grow: 1;
+            padding: 16px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+        
+        .search-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            border: none;
+            padding: 0 30px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 16px;
+        }
+        
+        .search-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        .cta-buttons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .schedule-btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 14px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .schedule-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .schedule-btn-icon {
+            margin-right: 10px;
+        }
+        
+        .phone-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .phone-link:hover {
+            color: var(--primary);
+        }
+        
+        .phone-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .phone-link:hover .phone-icon {
+            background-color: rgba(0,115,183,0.1);
+            transform: scale(1.1);
+        }
+        
+        .hero-image {
+            width: 45%;
+            position: relative;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 80%;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .hero-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .hero-image-badge {
+            position: absolute;
+            bottom: 30px;
+            left: -20px;
+            background-color: var(--white);
+            padding: 15px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: center;
+        }
+        
+        .badge-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0,115,183,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .badge-text {
+            font-weight: 500;
+        }
+        
+        .badge-text span {
+            display: block;
+            font-size: 12px;
+            color: var(--gray);
+        }
+        
+        /* Brands section */
+        .brands {
+            padding: 40px 0;
+            background-color: var(--white);
+        }
+        
+        .brands-title {
+            text-align: center;
+            color: var(--gray);
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        
+        .brands-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .brand-item {
+            padding: 15px 30px;
+            opacity: 0.7;
+            transition: var(--transition);
+        }
+        
+        .brand-item:hover {
+            opacity: 1;
+        }
+        
+        /* Services section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-subtitle::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .section-description {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 18px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: var(--white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .service-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 1;
+        }
+        
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 30px;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: rgba(0,115,183,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 24px;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover .service-icon {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .service-title {
+            font-size: 22px;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .service-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .service-description {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        .service-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .service-price {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .service-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .service-link span {
+            margin-right: 5px;
+        }
+        
+        .service-link:hover {
+            color: var(--primary);
+        }
+        
+        /* Why choose us section */
+        .why-choose {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .why-choose-shape {
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,165,224,0.1) 0%, rgba(0,165,224,0) 70%);
+        }
+        
+        .why-choose-content {
+            display: flex;
+            align-items: center;
+        }
+        
+        .why-choose-image {
+            width: 45%;
+            position: relative;
+        }
+        
+        .why-choose-image-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 75%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .why-choose-image img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .experience-badge {
+            position: absolute;
+            right: -30px;
+            bottom: 50px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .experience-number {
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .experience-text {
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .why-choose-text {
+            width: 50%;
+            padding-left: 50px;
+        }
+        
+        .why-choose-list {
+            margin-top: 30px;
+        }
+        
+        .why-choose-item {
+            display: flex;
+            margin-bottom: 25px;
+        }
+        
+        .why-choose-icon {
+            min-width: 50px;
+            height: 50px;
+            background-color: rgba(0,115,183,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary);
+            font-size: 20px;
+            transition: var(--transition);
+        }
+        
+        .why-choose-item:hover .why-choose-icon {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+        
+        .why-choose-item-content h4 {
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        
+        .why-choose-item-content p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        /* Process section */
+        .process {
+            padding: 100px 0;
+            background-color: var(--light);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .process-shape {
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,115,183,0.1) 0%, rgba(0,115,183,0) 70%);
+        }
+        
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            position: relative;
+            margin-top: 50px;
+        }
+        
+        .process-grid::before {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: rgba(0,115,183,0.1);
+            z-index: 0;
+        }
+        
+        .process-item {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .process-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 30px;
+            color: var(--primary);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .process-item:hover .process-icon {
+            background-color: var(--primary);
+            color: var(--white);
+            transform: translateY(-10px);
+        }
+        
+        .process-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 30px;
+            height: 30px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .process-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        .process-description {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        /* Call to action */
+        .call-to-action {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-shape {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+        }
+        
+        .cta-shape-2 {
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+        }
+        
+        .cta-title {
+            font-size: 42px;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .cta-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--white);
+            border-radius: 3px;
+        }
+        
+        .cta-description {
+            max-width: 700px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        
+        .cta-btn {
+            background-color: var(--white);
+            color: var(--primary);
+            padding: 16px 40px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            margin: 0 15px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .cta-btn:hover {
+            background-color: var(--dark);
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .cta-btn span {
+            margin-right: 10px;
+        }
+        
+        .cta-phone {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 18px;
+            margin: 15px;
+            transition: var(--transition);
+        }
+        
+        .cta-phone:hover {
+            transform: scale(1.05);
+        }
+        
+        .cta-phone-icon {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+        
+        .cta-phone:hover .cta-phone-icon {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .testimonial-shape {
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0,115,183,0.05) 0%, rgba(0,115,183,0) 70%);
+        }
+        
+        .testimonial-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial-card {
+            background-color: var(--light-gray);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .testimonial-quote {
+            font-size: 50px;
+            color: var(--primary);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+        }
+        
+        .testimonial-content {
+            color: var(--gray);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 20px;
+        }
+        
+        .testimonial-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h4 {
+            font-size: 18px;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-info p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+        
+        .testimonial-rating {
+            margin-top: 10px;
+            color: #ffd700;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 80px 0 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .footer-shape {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0,115,183,0.1) 0%, rgba(0,115,183,0) 70%);
+            border-radius: 50%;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 50px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .footer-logo {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display.footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    color: var(--white);
+    text-decoration: none;
+}
+
+.footer-logo span {
+    color: var(--primary);
+    margin-left: 5px;
+}
+
+.footer-about {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    background-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.footer-heading {
+    font-size: 18px;
+    margin-bottom: 25px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30px;
+    height: 2px;
+    background-color: var(--primary);
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a:hover {
+    color: var(--white);
+    transform: translateX(5px);
+}
+
+.footer-links a span {
+    margin-right: 8px;
+    font-size: 12px;
+}
+
+.footer-contact-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.contact-icon {
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: var(--primary);
+}
+
+.contact-info {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.contact-info span {
+    display: block;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.footer-newsletter p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.newsletter-form {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.newsletter-input {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: none;
+    border-radius: 6px 0 0 6px;
+    outline: none;
+    font-size: 14px;
+}
+
+.newsletter-btn {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    padding: 0 20px;
+    border-radius: 0 6px 6px 0;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.newsletter-btn:hover {
+    background-color: var(--primary-dark);
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 30px;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-copyright {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.footer-links-bottom {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-links-bottom a {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    font-size: 14px;
+    transition: var(--transition);
+}
+
+.footer-links-bottom a:hover {
+    color: var(--white);
+}
+
+/* Responsive styles */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+    
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+    }
+    
+    .hero-text {
+        width: 100%;
+        margin-bottom: 50px;
+        text-align: center;
+    }
+    
+    .hero-features {
+        justify-content: center;
+    }
+    
+    .hero-image {
+        width: 80%;
+    }
+    
+    .hero-image-badge {
+        left: 20px;
+    }
+    
+    .hero-title {
+        font-size: 42px;
+    }
+    
+    .why-choose-content {
+        flex-direction: column;
+    }
+    
+    .why-choose-image {
+        width: 80%;
+        margin-bottom: 50px;
+    }
+    
+    .why-choose-text {
+        width: 100%;
+        padding-left: 0;
+    }
+    
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .process-grid::before {
+        display: none;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--white);
+        padding: 20px;
+        box-shadow: var(--shadow-md);
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .nav-menu.show {
+        display: flex;
+    }
+    
+    .nav-menu li {
+        margin: 10px 0;
+    }
+    
+    .menu-toggle {
+        display: block;
+    }
+    
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-image {
+        width: 100%;
+    }
+    
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .why-choose-image {
+        width: 100%;
+    }
+    
+    .experience-badge {
+        width: 100px;
+        height: 100px;
+        right: 20px;
+        bottom: 20px;
+    }
+    
+    .experience-number {
+        font-size: 28px;
+    }
+    
+    .experience-text {
+        font-size: 12px;
+    }
+    
+    .cta-title {
+        font-size: 32px;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+    
+    .cta-btn, .cta-phone {
+        margin: 10px 0;
+    }
+    
+    .testimonial-card {
+        padding: 30px;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-copyright {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-description {
+        font-size: 16px;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .hero-feature {
+        margin-bottom: 15px;
+    }
+    
+    .search-box {
+        flex-direction: column;
+    }
+    
+    .search-input {
+        width: 100%;
+        border-radius: 8px 8px 0 0;
+    }
+    
+    .search-btn {
+        width: 100%;
+        border-radius: 0 0 8px 8px;
+        padding: 12px;
+    }
+    
+    .section-title {
+        font-size: 28px;
+    }
+    
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .testimonial-card {
+        padding: 20px;
+    }
+    
+    .testimonial-content {
+        font-size: 16px;
+    }
+}
+
+/* Animation classes */
+.slide-in-left {
+    animation: slideInLeft 0.5s ease forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 0.5s ease forwards;
+}
+
+.zoom-in {
+    animation: zoomIn 0.5s ease forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Back to top button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    box-shadow: var(--shadow-md);
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-5px);
+}
+
+/* Preloader */
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid rgba(0, 115, 183, 0.2);
+    border-top: 5px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+/* Overall section styling */
+.brands {
+  padding: 40px 0;
+  background-color: #f9f9f9;
+}
+
+/* Container for content centering */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Title styling */
+.brands-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #333;
+}
+
+/* Grid layout for brand balls */
+.brands-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+/* Brand item as circular container */
+.brand-item {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  overflow: hidden;
+}
+
+/* Hover effect */
+.brand-item:hover {
+  transform: scale(1.08);
+}
+
+/* Image styling for circular appearance */
+.brand-item img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .brands-title {
+    font-size: 16px;
+  }
+  
+  .brands-grid {
+    gap: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .brands {
+    padding: 30px 0;
+  }
+  
+  .brands-title {
+    font-size: 14px;
+  }
+  
+  .brand-item {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .brands-grid {
+    gap: 16px;
+  }
+}
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <i class="fas fa-snowflake logo-icon"></i>
+                    AZRAQ<span>TECH</span>
+                </a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#process">How It Works</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                    </ul>
+                    <button class="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <a href="#contact" class="contact-btn">
+                        <span><i class="fas fa-phone-alt"></i></span>
+                        Contact Us
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-shape"></div>
+        <div class="hero-shape-2"></div>
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in-up">
+                    <span class="hero-tagline">Premium Refrigerator Repair</span>
+                    <h1 class="hero-title">Expert <span>Refrigerator</span> Repair Services</h1>
+                    <p class="hero-description">Fast, reliable, and professional refrigerator repair services. Our team of certified technicians can fix any make or model with same-day service available.</p>
+                    <div class="hero-features">
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="hero-feature-text">Same Day Service</span>
+                        </div>
+                        <div class="hero-feature">
+                            <div class="hero-feature-icon">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <span class="hero-feature-text">90-Day Warranty</span>
+                        </div>
+                    </div>
+                    <div class="search-box">
+                        <div class="search-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <input type="text" class="search-input" placeholder="Enter your zip code">
+                        <button class="search-btn">Check Availability</button>
+                    </div>
+                    <div class="cta-buttons">
+                        <a href="#" class="schedule-btn">
+                            <i class="fas fa-calendar-alt schedule-btn-icon"></i>
+                            Schedule Service
+                        </a>
+                        <a href="tel:+250786278510" class="phone-link">
+                            <div class="phone-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <span>
+                                Call Us Now<br>
+                                <strong>+250786278510</strong>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image slide-in-right">
+                    <div class="hero-image-container">
+                        <img src="3.jpg" alt="Refrigerator Repair">
+                    </div>
+                    <div class="hero-image-badge">
+                        <div class="badge-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="badge-text">
+                            <span>All Services</span>
+                            Satisfaction Guaranteed
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Brands Section -->
+    <section class="brands">
+        <div class="container">
+            <h3 class="brands-title">TRUSTED BY OWNERS OF MAJOR REFRIGERATOR BRANDS</h3>
+            <div class="brands-grid">
+                <div class="brand-item">
+                    <img src="sam.png" alt="Samsung">
+                </div>
+                <div class="brand-item">
+                    <img src="lg.jpeg" alt="LG">
+                </div>
+                <div class="brand-item">
+                    <img src="whil.png" alt="Whirlpool">
+                </div>
+                <div class="brand-item">
+                    <img src="ge.jpeg" alt="GE">
+                </div>
+                <div class="brand-item">
+                    <img src="fr.png" alt="Frigidaire">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Services</span>
+                <h2 class="section-title">Professional Refrigerator Services</h2>
+                <p class="section-description">We offer comprehensive repair and maintenance services for all types of refrigerators, ensuring optimal performance and longevity.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="12.jpeg" alt="Refrigerator Repair">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 class="service-title">Refrigerator Repair</h3>
+                        <p class="service-description">Comprehensive repair services for all refrigerator issues including cooling problems, ice maker issues, water leaks, and more.</p>
+                        <div class="service-footer">
+                            <div class="service-price">From $89</div>
+                            <a href="#" class="service-link">
+                                <span>Learn more</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="13.jpeg" alt="Freezer Repair">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <h3 class="service-title">Freezer Repair</h3>
+                        <p class="service-description">Expert freezer repair services for common issues such as frost buildup, temperature regulation, seal problems, and more.</p>
+                        <div class="service-footer">
+                            <div class="service-price">From $79</div>
+                            <a href="#" class="service-link">
+                                <span>Learn more</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="1.jpg" alt="Maintenance">
+                    </div>
+                    <div class="service-content">
+                        <div class="service-icon">
+                            <i class="fas fa-clipboard-check"></i>
+                        </div>
+                        <h3 class="service-title">Maintenance & Cleaning</h3>
+                        <p class="service-description">Preventative maintenance services to keep your refrigerator running efficiently, including coil cleaning, seal inspection, and more.</p>
+                        <div class="service-footer">
+                            <div class="service-price">From $59</div>
+                            <a href="#" class="service-link">
+                                <span>Learn more</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="about" class="why-choose">
+        <div class="why-choose-shape"></div>
+        <div class="container">
+            <div class="why-choose-content">
+                <div class="why-choose-image">
+                    <div class="why-choose-image-container">
+                        <img src="12.jpeg" alt="Experienced Technician">
+                    </div>
+                    <div class="experience-badge">
+                        <div class="experience-number">15+</div>
+                        <div class="experience-text">Years Experience</div>
+                    </div>
+                </div>
+                <div class="why-choose-text">
+                    <span class="section-subtitle">Why Choose Us</span>
+                    <h2 class="section-title">Your Trusted Partner for Refrigerator Repairs</h2>
+                    <p class="section-description">With over 15 years of experience, we've built a reputation for reliable, professional, and affordable refrigerator repair services.</p>
+                    <div class="why-choose-list">
+                        <div class="why-choose-item">
+                            <div class="why-choose-icon">
+                                <i class="fas fa-certificate"></i>
+                            </div>
+                            <div class="why-choose-item-content">
+                                <h4>Certified Technicians</h4>
+                                <p>Our team consists of factory-trained and certified technicians with years of experience in the field.</p>
+                            </div>
+                        </div>
+                        <div class="why-choose-item">
+                            <div class="why-choose-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="why-choose-item-content">
+                                <h4>Quick Response Time</h4>
+                                <p>We understand the urgency of refrigerator issues and offer same-day service in most areas.</p>
+                            </div>
+                        </div>
+                        <div class="why-choose-item">
+                            <div class="why-choose-icon">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <div class="why-choose-item-content">
+                                <h4>Competitive Pricing</h4>
+                                <p>We offer transparent pricing with no hidden fees and affordable service rates.</p>
+                            </div>
+                        </div>
+                        <div class="why-choose-item">
+                            <div class="why-choose-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="why-choose-item-content">
+                                <h4>Guaranteed Satisfaction</h4>
+                                <p>All our repairs come with a 90-day parts and labor warranty for your peace of mind.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="process-shape"></div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Process</span>
+                <h2 class="section-title">How We Work</h2>
+                <p class="section-description">We follow a straightforward process to ensure efficient and effective refrigerator repair services.</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-phone-alt"></i>
+                        <div class="process-number">1</div>
+                    </div>
+                    <h3 class="process-title">Schedule Service</h3>
+                    <p class="process-description">Call us or book online to schedule a convenient appointment time.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-search"></i>
+                        <div class="process-number">2</div>
+                    </div>
+                    <h3 class="process-title">Diagnosis</h3>
+                    <p class="process-description">Our technicians will inspect your refrigerator and identify the issue.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                        <div class="process-number">3</div>
+                    </div>
+                    <h3 class="process-title">Quote</h3>
+                    <p class="process-description">We provide a transparent quote before proceeding with any repairs.</p>
+                </div>
+                <div class="process-item">
+                    <div class="process-icon">
+                        <i class="fas fa-tools"></i>
+                        <div class="process-number">4</div>
+                    </div>
+                    <h3 class="process-title">Repair</h3>
+                    <p class="process-description">Our expert completes the repair efficiently with quality parts.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="call-to-action">
+        <div class="cta-shape"></div>
+        <div class="cta-shape-2"></div>
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Need Refrigerator Repair?</h2>
+                <p class="cta-description">Don't let refrigerator problems ruin your day. Our expert technicians are ready to help you with prompt, professional service.</p>
+                <div class="cta-buttons">
+                    <a href="#" class="cta-btn">
+                        <span><i class="fas fa-calendar-alt"></i></span>
+                        Schedule Service
+                    </a>
+                    <a href="tel:+250786278510" class="cta-phone">
+                        <div class="cta-phone-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                      +250786278510
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="testimonial-shape"></div>
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Testimonials</span>
+                <h2 class="section-title">What Our Customers Say</h2>
+                <p class="section-description">Don't just take our word for it. See what our satisfied customers have to say about our services.</p>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial-card">
+                    <div class="testimonial-quote">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    <p class="testimonial-content">The technician was prompt, professional, and fixed my colling system in no time. He explained the issue clearly and provided maintenance tips. Highly recommend AZRAQ TECH for Colling systrm repairs!</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">
+                            <img src="https://via.placeholder.com/60x60" alt="Customer">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>John (Kigali farm) Musanz Branch</h4>
+                            <p>Satisfied Customer</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-shape"></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <a href="#" class="footer-logo">
+                        <i class="fas fa-snowflake"></i>
+                        AZRAQ<span>TECH</span>
+                    </a>
+                    <p class="footer-about">Expert refrigerator repair services with certified technicians, competitive pricing, and guaranteed satisfaction. Serving the community for over 15 years.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home"><span><i class="fas fa-chevron-right"></i></span> Home</a></li>
+                        <li><a href="#services"><span><i class="fas fa-chevron-right"></i></span> Services</a></li>
+                        <li><a href="#about"><span><i class="fas fa-chevron-right"></i></span> About Us</a></li>
+                        <li><a href="#process"><span><i class="fas fa-chevron-right"></i></span> How It Works</a></li>
+                        <li><a href="#testimonials"><span><i class="fas fa-chevron-right"></i></span> Testimonials</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4 class="footer-heading">Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#"><span><i class="fas fa-chevron-right"></i></span> Refrigerator Repair</a></li>
+                        <li><a href="#"><span><i class="fas fa-chevron-right"></i></span> Freezer Repair</a></li>
+                        <li><a href="#"><span><i class="fas fa-chevron-right"></i></span> Ice Maker Repair</a></li>
+                        <li><a href="#"><span><i class="fas fa-chevron-right"></i></span> Preventative Maintenance</a></li>
+                        <li><a href="#"><span><i class="fas fa-chevron-right"></i></span> Commercial Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4 class="footer-heading">Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-info">
+                            Kanombe-kigali-Musanze- North Province,Kayonza _east Province
+                            <span> Kanombe-kigali</span>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-info">
+                           +250786278510
+                            <span>Mon-Fri: 8am-7pm, Sat: 9am-5pm</span>
+                        </div>
+                    </div>
+                    <div class="footer-contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-info">
+                            info@azraqtech.com
+                            <span>24/7 Online Support</span>
+                        </div>
+                    </div>
+                    <div class="footer-newsletter">
+                        <h4 class="footer-heading">Newsletter</h4>
+                        <p>Subscribe to our newsletter for tips and special offers.</p>
+                        <div class="newsletter-form">
+                            <input type="email" class="newsletter-input" placeholder="Your email">
+                            <button class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2025 AZRAQ TECH. All Rights Reserved.
+                </div>
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>// Wait for the DOM to be fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Preloader
+            window.addEventListener('load', function() {
+                const preloader = document.querySelector('.preloader');
+                setTimeout(function() {
+                    preloader.classList.add('hide');
+                }, 500);
+            });
+            
+            // Mobile menu toggle
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            menuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('show');
+            });
+            
+            // Close menu when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.nav-menu') && !event.target.closest('.menu-toggle')) {
+                    navMenu.classList.remove('show');
+                }
+            });
+            
+            // Header scroll effect
+            const header = document.getElementById('header');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 100) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+            
+            // Smooth scrolling for anchor links
+            const scrollLinks = document.querySelectorAll('a[href^="#"]');
+            
+            scrollLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            const offsetTop = targetElement.offsetTop - 100;
+                            
+                            window.scrollTo({
+                                top: offsetTop,
+                                behavior: 'smooth'
+                            });
+                            
+                            // Close mobile menu after click
+                            navMenu.classList.remove('show');
+                        }
+                    }
+                });
+            });
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Animate elements on scroll
+            const animateElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right, .zoom-in');
+            
+            function checkIfInView() {
+                const windowHeight = window.innerHeight;
+                const windowTopPosition = window.scrollY;
+                const windowBottomPosition = windowTopPosition + windowHeight;
+                
+                animateElements.forEach(element => {
+                    const elementHeight = element.offsetHeight;
+                    const elementTopPosition = element.offsetTop;
+                    const elementBottomPosition = elementTopPosition + elementHeight;
+                    
+                    // Check if element is in viewport
+                    if ((elementBottomPosition >= windowTopPosition) && (elementTopPosition <= windowBottomPosition)) {
+                        element.classList.add('animated');
+                    }
+                });
+            }
+            
+            // Initial check on page load
+            checkIfInView();
+            
+            // Check on scroll
+            window.addEventListener('scroll', checkIfInView);
+            
+            // Handle search form submission
+            const searchBox = document.querySelector('.search-box');
+            const searchInput = document.querySelector('.search-input');
+            const searchBtn = document.querySelector('.search-btn');
+            
+            searchBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const zipCode = searchInput.value.trim();
+                
+                if (zipCode !== '') {
+                    // Display confirmation message
+                    alert('Checking availability for ZIP code: ' + zipCode);
+                    // Here you would typically send the zipcode to a server for processing
+                    searchInput.value = '';
+                } else {
+                    alert('Please enter your ZIP code.');
+                }
+            });
+            
+            // Newsletter form submission
+            const newsletterForm = document.querySelector('.newsletter-form');
+            const newsletterInput = document.querySelector('.newsletter-input');
+            const newsletterBtn = document.querySelector('.newsletter-btn');
+            
+            newsletterBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const email = newsletterInput.value.trim();
+                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                
+                if (email !== '' && emailPattern.test(email)) {
+                    // Display confirmation message
+                    alert('Thank you for subscribing! You will now receive our newsletter at: ' + email);
+                    // Here you would typically send the email to a server for processing
+                    newsletterInput.value = '';
+                } else {
+                    alert('Please enter a valid email address.');
+                }
+            });
+            
+            // Testimonial slider functionality (if multiple testimonials)
+            // This could be expanded for multiple testimonials with navigation
+            
+            // Service cards hover effect enhancement
+            const serviceCards = document.querySelectorAll('.service-card');
+            
+            serviceCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.classList.add('hovered');
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.classList.remove('hovered');
+                });
+            });
+            
+            // Schedule service button click handler 
+            const scheduleButtons = document.querySelectorAll('.schedule-btn, .cta-btn');
+            
+            scheduleButtons.forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // This would typically open a modal or redirect to a scheduling page
+                    alert('Opening scheduling form. You will be able to select a date and time for your service.');
+                });
+            });
+            
+            // Add current year to copyright text
+            const currentYear = new Date().getFullYear();
+            const copyrightEl = document.querySelector('.footer-copyright');
+            
+            if (copyrightEl) {
+                copyrightEl.innerHTML = `&copy; ${currentYear} AZRAQ TECH. All Rights Reserved.`;
+            }
+            
+            // Initialize custom behavior for links that should not navigate
+            const demoLinks = document.querySelectorAll('.service-link, .social-icon');
+            
+            demoLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                });
+            });
+        });
+    </script>
+</body>
+</html>
